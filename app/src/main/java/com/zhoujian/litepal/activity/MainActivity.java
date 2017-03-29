@@ -27,10 +27,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-
         clickEvents();
     }
-
 
     private void initViews()
     {
@@ -108,8 +106,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-
         mQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -125,8 +121,6 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, "查询数据成功", Toast.LENGTH_SHORT).show();
             }
         });
-
-        //https://github.com/zeke123/LitePalDemo.git
 
     }
 }
