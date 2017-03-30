@@ -5,7 +5,6 @@ import org.litepal.crud.DataSupport;
 /**
  * Created by zhoujian on 2017/3/29.
  */
-
 public class Person extends DataSupport
 {
     private String name;
