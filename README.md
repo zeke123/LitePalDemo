@@ -1,3 +1,128 @@
+## 简介
+
+LitePal是一款开源的Android数据库框架，采用了关系映射的模式。LitePal在github上的项目地址：[https://github.com/LitePalFramework/LitePal](https://github.com/LitePalFramework/LitePal)
+
+
+## 配置LitePal
+
+```
+dependencies {
+ ....
+ compile 'org.litepal.android:core:1.5.1'
+}
+
+```
+
+在app/src/main 目录下新建目录assets，在assets目录下建litepal.xml 文件
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="Person" ></dbname>
+
+    <version value="1" ></version>
+
+    <list>
+        <mapping class="com.zhoujian.litepal.bean.Person"></mapping>
+    </list>
+</litepal>
+
+```
+
+<dbname> 标签用于指定数据库名
+<version> 标签用于指定版本号
+<list> 标签用于指定所有的映射模型
+
+
+在清单文件中配置LitePalApplication
+
+```
+
+ <application
+        android:name="org.litepal.LitePalApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+```
+
+## 实战
+
+#### 创建JavaBean
+
+Person.java
+
+```
+package com.zhoujian.litepal.bean;
+
+import org.litepal.crud.DataSupport;
+
+/**
+ * Created by zhoujian on 2017/3/29.
+ */
+
+public class Person extends DataSupport
+{
+    private String name;
+
+    private int age;
+
+    private int id;
+
+    private String weight;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+}
+
+```
+
+#### 增删改查数据库
+
+MainActivity.java
+
+```
+
 package com.zhoujian.litepal.activity;
 
 import android.os.Bundle;
@@ -27,8 +152,10 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+
         clickEvents();
     }
+
 
     private void initViews()
     {
@@ -39,7 +166,6 @@ public class MainActivity extends AppCompatActivity
         mQueryButton = (Button) findViewById(R.id.query_data);
     }
 
-
     private void clickEvents()
     {
         mCreateDatabase.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +175,7 @@ public class MainActivity extends AppCompatActivity
                 Connector.getDatabase();
             }
         });
+
 
         mAddData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +233,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+
         mQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -124,3 +253,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 }
+
+```
+
+## 源码下载
+
+[源码下载：https://github.com/zeke123/LitePalDemo](https://github.com/zeke123/LitePalDemo)
