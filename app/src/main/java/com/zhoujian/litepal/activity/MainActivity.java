@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity
                 person.setWeight("65kg");
                 person.save();
 
+
                 person.clearSavedState();
                 person.setId(3);
                 person.setName("周星驰");
