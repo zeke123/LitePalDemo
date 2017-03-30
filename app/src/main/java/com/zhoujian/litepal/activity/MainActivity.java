@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
         mAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
