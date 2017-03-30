@@ -49,4 +49,6 @@ public class Person extends DataSupport
     public void setId(int id) {
         this.id = id;
     }
+
+    //https://github.com/zeke123/LitePalDemo.git
 }
