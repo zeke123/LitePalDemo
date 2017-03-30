@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
+
                 Person person = new Person();
                 person.setId(1);
                 person.setName("周润发");
